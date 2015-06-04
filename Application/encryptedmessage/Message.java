@@ -10,11 +10,11 @@ public class Message {
 		String reversedString = reverseString(input);
 		
 		//First part
-		int lengthOfAlphabet = getLengthOfAlphabet(reversedString);
+//		int lengthOfAlphabet = getLengthOfAlphabet(reversedString);
 		String alphabet = getAlphabet(reversedString);
 		
 		//Second part
-		int LengthOfKey = getLengthOfKey(reversedString);
+//		int LengthOfKey = getLengthOfKey(reversedString);
 		String key = getKey(reversedString);
 		
 		//Middle part
@@ -25,7 +25,6 @@ public class Message {
 		
 		//Get indexes in alphabet of encrypted message
 		int[] indexesEncryptedMessage = getIndexesOfMessage(encryptedMessage, alphabet);
-		
 		
 		//Get indexes in alphabet of real word
 		int[] indexesRealWord = getIndexesOfRealWord(indexesEncryptedMessage, wholeKey, alphabet);

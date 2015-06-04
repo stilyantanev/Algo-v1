@@ -1,6 +1,6 @@
 # Palindromes
 
-A palindrome is a string which reads the same backward or forward. 
+A palindrome is a string which reads the same backward or forward.
 
 Examples for palindromes:
 
@@ -20,14 +20,14 @@ Example (all rotations of the string "bird"):
 
 ## Input
 
-* On the standard input you will be given a string consisting of lower-case latin letters only. 
+* On the standard input you will be given a string consisting of lower-case latin letters only.
 * The length of the string will be between 1 and 1000.
 
 ## Output
 
 **On the standard output print all the rotations of the given string which are palindromes.**
 
-Each rotation should be printed on a separate line. You can print them in any order. 
+Each rotation should be printed on a separate line. You can print them in any order.
 
 Two rotations are considered different if the index at which the original string was split is different even if they are lexicographically equal. If none of the rotations of the string is a palindrome, print "NONE" (without the quotes).
 
