@@ -2,7 +2,7 @@ package encryptedmessage;
 
 import java.util.Scanner;
 
-public class Message {
+public class EncryptedMessage {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		String input = in.nextLine();
@@ -10,11 +10,9 @@ public class Message {
 		String reversedString = reverseString(input);
 		
 		//First part
-//		int lengthOfAlphabet = getLengthOfAlphabet(reversedString);
 		String alphabet = getAlphabet(reversedString);
 		
 		//Second part
-//		int LengthOfKey = getLengthOfKey(reversedString);
 		String key = getKey(reversedString);
 		
 		//Middle part
@@ -104,6 +102,7 @@ public class Message {
 	
 	static int[] getIndexesOfMessage(String encryptedMessage, String alphabet){
 		int[] indexesEncryptedMessage = new int[encryptedMessage.length()];
+		
 		for (int i = 0; i < encryptedMessage.length(); i++) {
 			char letter = encryptedMessage.charAt(i);
 					
