@@ -28,7 +28,7 @@ public class Palindromes {
 		in.close();
 	}
 	
-	static ArrayList<String> getAllPartsOfString(String string){
+	static ArrayList<String> getAllPartsOfString(String string) {
 		ArrayList<String> allParts = new ArrayList<>();
 		int length = string.length();
 		
@@ -45,7 +45,7 @@ public class Palindromes {
 		return allParts;
 	}
 	
-	static boolean checkIsPalindrome(String string){
+	static boolean checkIsPalindrome(String string) {
 		int length = string.length();
 		
 		for (int i = 0; i < length; i++) {
@@ -57,11 +57,11 @@ public class Palindromes {
 		return true;
 	}
 	
-	static void printNone(){
+	static void printNone() {
 		System.out.println("NONE");
 	}
 	
-	static void printAllPalindromes(ArrayList<String> palindromes){
+	static void printAllPalindromes(ArrayList<String> palindromes) {
 		for (int i = 0; i < palindromes.size(); i++) {
 			System.out.println(palindromes.get(i));
 		}

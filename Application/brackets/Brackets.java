@@ -3,7 +3,7 @@ package brackets;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Brackets{
+public class Brackets {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		String input = in.nextLine();
@@ -20,7 +20,7 @@ public class Brackets{
 		in.close();
 	}
 	
-	static boolean bracketValidator(String string){
+	static boolean bracketValidator(String string) {
 		boolean isValid = true;
 		
 		//Check starts with '(' and ends with ')' type bracket
@@ -155,15 +155,15 @@ public class Brackets{
 		return isValid;
 	}
 	
-	static boolean isOpenBracket(char ch){
+	static boolean isOpenBracket(char ch) {
 		return ch == '{' || ch == '(' || ch == '[';
 	}
 	
-	static boolean isCloseBracket(char ch){
+	static boolean isCloseBracket(char ch) {
 		return ch == '}' || ch == ')' || ch == ']';
 	}
 	
-	static int evaluateExpression(String string){
+	static int evaluateExpression(String string) {
 		String nums = "";
 		int i = 0;
 		int realSum = 0;

@@ -35,7 +35,7 @@ public class EncryptedMessage {
 		in.close();
 	}
 	
-	static String reverseString(String string){
+	static String reverseString(String string) {
 		int length = string.length();
 		String firstHalf = string.substring(0, length / 2);
 		String secondHalf = string.substring(length / 2, length);
@@ -43,21 +43,21 @@ public class EncryptedMessage {
 		return secondHalf + firstHalf;
 	}
 	
-	static int getLengthOfAlphabet(String string){
+	static int getLengthOfAlphabet(String string) {
 		int firstTilda = string.indexOf('~');
 		int lengthOfAlphabet = Integer.parseInt(string.substring(0, firstTilda));
 		
 		return lengthOfAlphabet;
 	}
 	
-	static String getAlphabet(String string){
+	static String getAlphabet(String string) {
 		int firstTilda = string.indexOf('~');
 		String alphabet = string.substring(firstTilda + 1, firstTilda + getLengthOfAlphabet(string) + 1);
 		
 		return alphabet;
 	}
 	
-	static int getLengthOfKey(String string){
+	static int getLengthOfKey(String string) {
 		int firstTilda = string.indexOf('~');
 		int secondTilda = string.indexOf('~', firstTilda + 1);
 		int lengthOfKey = Integer.parseInt(string.substring(secondTilda + 1));
@@ -65,7 +65,7 @@ public class EncryptedMessage {
 		return lengthOfKey;
 	}
 	
-	static String getKey(String string){
+	static String getKey(String string) {
 		int firstTilda = string.indexOf('~');
 		int secondTilda = string.indexOf('~', firstTilda + 1);
 		String key = string.substring(secondTilda - getLengthOfKey(string), secondTilda);
@@ -73,7 +73,7 @@ public class EncryptedMessage {
 		return key;
 	}
 	
-	static String getEncryptedMessage(String string){
+	static String getEncryptedMessage(String string) {
 		int firstTilda = string.indexOf('~');
 		int secondTilda = string.indexOf('~', firstTilda + 1);
 		String encryptedMessage = string.substring(firstTilda + getLengthOfAlphabet(string) + 1, secondTilda - getLengthOfKey(string));
@@ -81,7 +81,7 @@ public class EncryptedMessage {
 		return encryptedMessage;
 	}
 	
-	static String getWholeKey(String key, int length){
+	static String getWholeKey(String key, int length) {
 		String wholeKey = "";
 		int keyLength = key.length();
 		int lengthOfWholeKey = length;
@@ -100,7 +100,7 @@ public class EncryptedMessage {
 		return wholeKey;
 	}
 	
-	static int[] getIndexesOfMessage(String encryptedMessage, String alphabet){
+	static int[] getIndexesOfMessage(String encryptedMessage, String alphabet) {
 		int[] indexesEncryptedMessage = new int[encryptedMessage.length()];
 		
 		for (int i = 0; i < encryptedMessage.length(); i++) {
@@ -116,7 +116,7 @@ public class EncryptedMessage {
 		return indexesEncryptedMessage;
 	}
 	
-	static int[] getIndexesOfRealWord(int[] indexesEncryptedMessage, String wholeKey, String alphabet){
+	static int[] getIndexesOfRealWord(int[] indexesEncryptedMessage, String wholeKey, String alphabet) {
 		int[] indexesRealWord = new int[indexesEncryptedMessage.length];
 		
 		for (int i = 0; i < indexesEncryptedMessage.length; i++) {
@@ -133,7 +133,7 @@ public class EncryptedMessage {
 		return indexesRealWord;
 	}
 	
-	static String makeRealWord(int [] indexesRealWord, String alphabet){
+	static String makeRealWord(int [] indexesRealWord, String alphabet) {
 		String realWord = "";
 		
 		for (int i = 0; i < indexesRealWord.length; i++) {
