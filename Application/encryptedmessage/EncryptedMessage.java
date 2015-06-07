@@ -108,7 +108,7 @@ public class EncryptedMessage {
 					
 			for (int j = 0; j < alphabet.length(); j++) {
 				if (letter == alphabet.charAt(j)){
-						indexesEncryptedMessage[i] = j;
+					indexesEncryptedMessage[i] = j;
 				}
 			}
 		}

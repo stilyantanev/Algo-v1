@@ -47,7 +47,6 @@ public class Brackets {
 		//Check starts and ends with digit
 		if (Character.isDigit(string.charAt(0)) ||
 			Character.isDigit(string.charAt(string.length() - 1))) {
-			
 			isValid = false;
 		}
 		
@@ -64,7 +63,6 @@ public class Brackets {
 		//Check for (digits[]digits) it is not valid combination
 		if (string.indexOf('(') < string.indexOf('[') &&
 			string.indexOf(']') < string.indexOf(')')) {
-			
 			isValid = false;
 		}
 		
@@ -73,11 +71,9 @@ public class Brackets {
 		for (int i = 0; i < string.length(); i++) {
 			char letter = string.charAt(i);
 			
-			if (letter == '{' ||
-				letter == '(' ||
-				letter == '[')
-				
-				stack.push(letter);
+			if (letter == '{' || letter == '(' || letter == '['){
+			    stack.push(letter);
+			}
 		}
 		
 		//Check for {digits()digits} it is not valid combination
@@ -89,7 +85,6 @@ public class Brackets {
 		
 		//Check for (digits()digits) it is not valid combination
 		int circleBracketIndex = stack.indexOf('(');
-		
 		if (circleBracketIndex != - 1) {
 			if (circleBracketIndex == stack.indexOf('(', circleBracketIndex) - 1) {
 				isValid = false;
@@ -98,7 +93,6 @@ public class Brackets {
 		
 		//Check for [digits[]digits] it is not valid combination
 		int squareBracketIndex = stack.indexOf('[');
-		
 		if (squareBracketIndex != - 1) {
 			if (squareBracketIndex == stack.indexOf('[', squareBracketIndex) - 1) {
 				isValid = false;
@@ -137,16 +131,17 @@ public class Brackets {
 		if (openCurly != closeCurly) {
 			isValid = false;
 		}
+		
 		if (openSquare != closeSquare) {
 			isValid = false;
 		}
+		
 		if (openCircle != closeCircle) {
 			isValid = false;
 		}
 		
 		//Check incorrectly closing brackets
 		String partWithoutEndBrackets = string.substring(1, string.length() - 1);
-		
 		if (partWithoutEndBrackets.indexOf('(') > partWithoutEndBrackets.indexOf(')')){
 			isValid = false;
 		}
@@ -192,13 +187,17 @@ public class Brackets {
 				if (isSquareBracket(string.charAt(i))) {
 					int position = string.indexOf(']', i) + 1;
 					String sub = string.substring(i, position);
+					
 					result += evaluateExpression(sub);
+					
 					i = position - 1;
 				}
 				else if (isCircleBracket(string.charAt(i))) {
 					int position = string.indexOf(')', i) + 1;
 					String sub = string.substring(i, position);
+					
 					result += evaluateExpression(sub);
+					
 					i = position - 1;
 				}
 			}
@@ -207,12 +206,14 @@ public class Brackets {
 					result += Integer.parseInt(nums);
 					nums = "";
 				}
+				
 				return 2 * result;
 			}
 			
 			i = i + 1;
 		}
 		
-		return result / 2;
+		//It does not have any role
+		return 0;
 	}
 }

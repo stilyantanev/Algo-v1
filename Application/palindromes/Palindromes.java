@@ -13,6 +13,7 @@ public class Palindromes {
 		
 		for (int i = 0; i < parts.size(); i++) {
 			String part = parts.get(i);
+			
 			if(checkIsPalindrome(part)){
 				allPalindromes.add(part);
 			}
