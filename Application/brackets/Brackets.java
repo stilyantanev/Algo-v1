@@ -10,7 +10,7 @@ public class Brackets {
 		
 		boolean isValid = bracketValidator(input);
 		if (isValid) {
-			int value = evaluateExpression(input);
+			int value = getResult(input);
 			System.out.println(value);
 		}
 		else {
@@ -132,7 +132,6 @@ public class Brackets {
 			else if (string.charAt(i) == ')') {
 				closeCircle++;
 			}
-			
 		}
 		
 		if (openCurly != closeCurly) {
@@ -163,43 +162,57 @@ public class Brackets {
 		return ch == '}' || ch == ')' || ch == ']';
 	}
 	
+	static boolean isSquareBracket(char ch) {
+		return ch == '[';
+	}
+	
+	static boolean isCircleBracket(char ch) {
+		return ch == '(';
+	}
+	
+	static int getResult(String input){
+		return evaluateExpression(input) / 2;
+	}
+	
 	static int evaluateExpression(String string) {
+		int result = 0;
+		int i = 1;
 		String nums = "";
-		int i = 0;
-		int realSum = 0;
 		
 		while (i < string.length()) {
-			i++;
-			char symbol = string.charAt(i);
-			
-			if (Character.isDigit(symbol)) {
-				nums += symbol;
+			if (Character.isDigit(string.charAt(i))) {
+				nums += string.charAt(i);
 			}
-			else if (isOpenBracket(symbol)) {
+			else if (isOpenBracket(string.charAt(i))) {
 				if (nums != "") {
-					realSum += Integer.parseInt(nums);
+					result += Integer.parseInt(nums);
 					nums = "";
 				}
 				
-				realSum += evaluateExpression(string.substring(i));
-				while(Character.isDigit(string.charAt(i + 1))){
-					i++;
+				if (isSquareBracket(string.charAt(i))) {
+					int position = string.indexOf(']', i) + 1;
+					String sub = string.substring(i, position);
+					result += evaluateExpression(sub);
+					i = position - 1;
 				}
-				i+=1;
-			}
-			else if  (isCloseBracket(symbol)) {
-				if(i == string.length() - 1){
-					return realSum + Integer.parseInt(nums);
-				}
-				else if (nums != ""){
-					return 2 * Integer.parseInt(nums);
-				}
-				else {
-					return 0;
+				else if (isCircleBracket(string.charAt(i))) {
+					int position = string.indexOf(')', i) + 1;
+					String sub = string.substring(i, position);
+					result += evaluateExpression(sub);
+					i = position - 1;
 				}
 			}
+			else if (isCloseBracket(string.charAt(i))) {
+				if (nums != "") {
+					result += Integer.parseInt(nums);
+					nums = "";
+				}
+				return 2 * result;
+			}
+			
+			i = i + 1;
 		}
 		
-		return realSum;
+		return result / 2;
 	}
 }
