@@ -1,6 +1,5 @@
 package vector;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Vector<T> {
@@ -11,11 +10,11 @@ public class Vector<T> {
     private int capacity;
 
     @SuppressWarnings("unchecked")
-    public Vector(Class<T> cls) {
+    public Vector() {
         size = 0;
         capacity = initialCapacitySize;
 
-        array = (T[]) Array.newInstance(cls, initialCapacitySize);
+        array = (T[]) new Object[initialCapacitySize];
     }
 
     private T[] ensureCapacity(T[] array) {
@@ -90,7 +89,7 @@ public class Vector<T> {
     }
 
     public static void main(String[] args) {
-        Vector<Integer> vector = new Vector<Integer>(Integer.class);
+        Vector<Integer> vector = new Vector<>();
         vector.add(1);
         vector.add(2);
         vector.add(3);
