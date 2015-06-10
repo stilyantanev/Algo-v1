@@ -4,7 +4,7 @@ import vector.Vector;
 
 public class Queue<T> {
     private Vector<T> vector= new Vector<T>();
-    
+
     public void push(T value){
         vector.add(value);
     }
