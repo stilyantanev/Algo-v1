@@ -1,17 +1,75 @@
 # Algo-1
+
 The first edition of the algo course in Hack Bulgaria
 
 ## Course Program
 
-**This program is a draft version and can change until the course starts.**
+The topics that we cover at the Algorithms course.
 
-* Introduction to algorithms - complexity, amortized complexity and sorting algorithms.
-* Basic linear data structures recap - stack, queue.
-* Basic non-linear data structures recap - Binary Search Trees / Trie / Heaps
-* Heapsort. Heap as a data structure.
-* Graph algorithms - BFS / DFS / Dijkstra / Spanning Trees / Matching algorithms
-* [String-search algorithms](http://en.wikipedia.org/wiki/String_searching_algorithm) - Knuth–Morris–Pratt, Hash, Aho-Corasick?
-* Probability algorithms - http://en.wikipedia.org/wiki/Monte_Carlo_algorithm
-* Dynamic Programming - DNA stuff
+#### Lecture 1 - Intro, analysis and data structures
 
-[There is a pull request for an updated version of the program](https://github.com/HackBulgaria/Algo-1/pull/1)
+* Course introduction
+* [Algorithm analysis](week1/materials/complexity_analysis.md)
+  * Execution instructions
+  * Asymptotic analysis
+  * Algorithm complexity and Big Oh notation
+  * Best/wrost case analysis
+* [Linear data structures](week1/materials/linear_data_structures.md)
+  * Array
+  * List
+  * Vector
+  * Queue/Stack
+
+#### Lecture 2 - Sorting
+
+* [Selection sort](week1/materials/sorting.md#selection-sort)
+* [Insertion sort](week1/materials/sorting.md#insertion-sort)
+* [Merge sort](week1/materials/sorting.md#merge-sort)
+* [Bubble sort](week1/materials/sorting.md#bubble-sort)
+* [Shell sort](week1/materials/sorting.md#shell-sort)
+* [Quick sort](week1/materials/sorting.md#quick-sort)
+* [Counting sort](week1/materials/sorting.md#counting-sort)
+
+#### Lecture 3 - Searching
+
+* [Linear search](week2/materials/searching.md#linear-search)
+* [Binary search](week2/materials/searching.md#binary-search)
+  * Different data types - integers/floats
+  * Different structures - arrays/range of numbers
+* Ternary search
+* [Interpolation search](week2/materials/searching.md#interpolation-search)
+
+#### Lecture 4 - Binary trees
+
+* [Binary tree](week2/materials/binary_trees.md#binary-tree)
+* [Binary search tree](week2/materials/binary_trees.md#binary-search-tree)
+* [Binary Heap](week2/materials/binary_trees.md#binary-heap)
+* [Heap sort](week2/materials/binary_trees.md#heap-sort)
+* [Priority queue](week2/materials/binary_trees.md#priority-queue)
+
+#### To be discussed
+
+* Trees & Tree-like data structures (1 lecture)
+  * Trie
+  * Indexed tree
+* Graphs (3 lectures)
+  * adjacency list
+  * adjacency matrix
+  * BFS / DFS
+  * Spanning trees
+    * Minimum spanning trees - Prim and Kruskal
+  * Shortest path
+    * Dijkstra
+    * Floyd–Warshall
+  * Topological sorting
+* Hashing (1 lecture)
+  * Hash function
+  * Hash table
+  * Bloom filter
+* String algorithms (1 lecture)
+  * rolling hash
+  * run-length encoding
+  * Burrows-Wheeler transform
+  * Knuth-Morris-Pratt
+* Randomized algorithms - Monte Carlo and Las Vegas (3 lecture)
+* Dynamic programming (3 lecture)

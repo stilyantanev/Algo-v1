@@ -71,7 +71,6 @@ public class Brackets {
         Stack<Character> stack = new Stack<Character>();
         for (int i = 0; i < string.length(); i++) {
             char letter = string.charAt(i);
-
             if (letter == '{' || letter == '(' || letter == '[') {
                 stack.push(letter);
             }

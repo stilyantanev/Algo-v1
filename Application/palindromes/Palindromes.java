@@ -13,7 +13,6 @@ public class Palindromes {
 
         for (int i = 0; i < parts.size(); i++) {
             String part = parts.get(i);
-
             if (checkIsPalindrome(part)) {
                 allPalindromes.add(part);
             }
@@ -48,7 +47,6 @@ public class Palindromes {
 
     static boolean checkIsPalindrome(String string) {
         int length = string.length();
-
         for (int i = 0; i < length; i++) {
             if (string.charAt(i) != string.charAt(length - 1 - i)) {
                 return false;
