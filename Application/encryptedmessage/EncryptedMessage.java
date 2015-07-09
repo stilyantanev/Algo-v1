@@ -6,7 +6,6 @@ public class EncryptedMessage {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
-
         String reversedString = reverseString(input);
 
         // First part
@@ -50,9 +49,9 @@ public class EncryptedMessage {
         return lengthOfAlphabet;
     }
 
-    static String getAlphabet(String string) {
-        int firstTilda = string.indexOf('~');
-        String alphabet = string.substring(firstTilda + 1, firstTilda + getLengthOfAlphabet(string) + 1);
+    static String getAlphabet(String word) {
+        int tilda = word.indexOf('~');
+        String alphabet = word.substring(tilda + 1, tilda + getLengthOfAlphabet(word) + 1);
 
         return alphabet;
     }
@@ -73,10 +72,15 @@ public class EncryptedMessage {
         return key;
     }
 
-    static String getEncryptedMessage(String string) {
-        int firstTilda = string.indexOf('~');
-        int secondTilda = string.indexOf('~', firstTilda + 1);
-        String encryptedMessage = string.substring(firstTilda + getLengthOfAlphabet(string) + 1, secondTilda - getLengthOfKey(string));
+    static String getEncryptedMessage(String word) {
+        int firstTilda = word.indexOf('~');
+        int secondTilda = word.indexOf('~', firstTilda + 1);
+        int alphabetLength = getLengthOfAlphabet(word) + 1;
+        int keyLength = getLengthOfKey(word);
+        int firstIndex = firstTilda + alphabetLength;
+        int secondIndex = secondTilda - keyLength;
+        
+        String encryptedMessage = word.substring(firstIndex, secondIndex);
 
         return encryptedMessage;
     }
@@ -105,6 +109,7 @@ public class EncryptedMessage {
 
         for (int i = 0; i < encryptedMessage.length(); i++) {
             char letter = encryptedMessage.charAt(i);
+
             for (int j = 0; j < alphabet.length(); j++) {
                 if (letter == alphabet.charAt(j)) {
                     indexesEncryptedMessage[i] = j;
@@ -115,14 +120,14 @@ public class EncryptedMessage {
         return indexesEncryptedMessage;
     }
 
-    static int[] getIndexesOfRealWord(int[] indexesEncryptedMessage, String wholeKey, String alphabet) {
-        int[] indexesRealWord = new int[indexesEncryptedMessage.length];
+    static int[] getIndexesOfRealWord(int[] indexesOfMessage, String wholeKey, String alphabet) {
+        int[] indexesRealWord = new int[indexesOfMessage.length];
 
-        for (int i = 0; i < indexesEncryptedMessage.length; i++) {
+        for (int i = 0; i < indexesOfMessage.length; i++) {
             char letter = wholeKey.charAt(i);
             int alphabetIndex = alphabet.indexOf(letter);
 
-            int index = indexesEncryptedMessage[i] + alphabet.length();
+            int index = indexesOfMessage[i] + alphabet.length();
             index = index - alphabetIndex;
             index = index % alphabet.length();
 

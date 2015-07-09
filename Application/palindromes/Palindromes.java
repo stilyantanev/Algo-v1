@@ -7,12 +7,13 @@ public class Palindromes {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
-
+        
         ArrayList<String> parts = getAllPartsOfString(input);
         ArrayList<String> allPalindromes = new ArrayList<>();
 
         for (int i = 0; i < parts.size(); i++) {
             String part = parts.get(i);
+            
             if (checkIsPalindrome(part)) {
                 allPalindromes.add(part);
             }
@@ -31,7 +32,7 @@ public class Palindromes {
     static ArrayList<String> getAllPartsOfString(String string) {
         ArrayList<String> allParts = new ArrayList<>();
         int length = string.length();
-
+        
         String firstPart = null;
         String secondPart = null;
 
@@ -47,6 +48,7 @@ public class Palindromes {
 
     static boolean checkIsPalindrome(String string) {
         int length = string.length();
+        
         for (int i = 0; i < length; i++) {
             if (string.charAt(i) != string.charAt(length - 1 - i)) {
                 return false;
