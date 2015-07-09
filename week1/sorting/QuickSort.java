@@ -11,10 +11,14 @@ public class QuickSort {
         int[] array = generateRandomArray(arraySize);
         System.out.println("Below is UNSORTED array!");
         printArray(array);
+        
+        // Calculate first and last indexes of array
+        int start = 0;
+        int end = array.length - 1;
 
         // Make sorting and get time for sorting
         long startTime = System.currentTimeMillis();
-        int[] sortedArray = quickSort(array, 0, array.length - 1);
+        int[] sortedArray = quickSort(array, start, end);
         long endTime = System.currentTimeMillis();
         double elapsedTime = (endTime - startTime) / 1000.0;
 

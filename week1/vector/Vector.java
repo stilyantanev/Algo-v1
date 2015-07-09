@@ -13,7 +13,6 @@ public class Vector<T> {
     public Vector() {
         size = 0;
         capacity = initialCapacitySize;
-
         array = (T[]) new Object[initialCapacitySize];
     }
 
@@ -27,7 +26,7 @@ public class Vector<T> {
     private void checkCorrectIndex(int index, int size) {
         try {
             if (index < 0 || index >= size) {
-                String message =String.format("Such index \"%d\" doesn't exist!", index);
+                String message = String.format("Such index \"%d\" doesn't exist!", index);
                 throw new ArrayIndexOutOfBoundsException(message);
             }
         }
