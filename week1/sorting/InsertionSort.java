@@ -3,12 +3,12 @@ package sorting;
 import java.util.Random;
 
 public class InsertionSort {
-    public static final int arraySize = 100000;
-    public static final int intervalNumbers = 200;
+    public static final int ARRAY_SIZE = 100000;
+    public static final int INTERVAL_NUMBERS = 200;
 
     public static void main(String[] args) {
         // Generate and print array
-        int[] array = generateRandomArray(arraySize);
+        int[] array = generateRandomArray(ARRAY_SIZE);
         System.out.println("Below is UNSORTED array!");
         printArray(array);
 
@@ -31,7 +31,7 @@ public class InsertionSort {
         Random random = new Random();
 
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(intervalNumbers);
+            array[i] = random.nextInt(INTERVAL_NUMBERS);
         }
 
         return array;
